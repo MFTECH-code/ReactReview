@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Estudar React",
+    "description": "Estudar React para o ano de 2025 eu poder fuder pra caralho",
+    "isCompleted": false
+  },
+  {
+    "id": 2,
+    "title": "Estudar React",
+    "description": "Estudar React para o ano de 2025 eu poder fuder pra caralho",
+    "isCompleted": false
+  },
+  {
+    "id": 3,
+    "title": "Estudar React",
+    "description": "Estudar React para o ano de 2025 eu poder fuder pra caralho",
+    "isCompleted": false
+  }
+]
