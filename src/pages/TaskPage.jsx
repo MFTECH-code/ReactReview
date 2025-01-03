@@ -11,18 +11,15 @@ function TaskPage() {
   });
 
   useEffect(() => {
-    fetch("../fakedata.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const taskData = data.find((t) => t.id === parseInt(id));
-        console.log(taskData);
-        if (taskData) {
-          setTask(taskData);
-        } else {
-          setTask(null);
-        }
-      })
-      .catch((error) => console.error("Error fetching the JSON file:", error));
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+    if (tasks) {
+      const taskFound = tasks.find((t) => t.id === parseInt(id));
+      if (taskFound) {
+        setTask(taskFound);
+      } else {
+        setTask(null);
+      }
+    }
   }, []);
 
   return (

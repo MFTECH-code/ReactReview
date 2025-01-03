@@ -1,19 +1,15 @@
-//import { useState } from "react";
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 import { useState, useEffect } from "react";
 
 function App() {
-  //let [message, setMessage] = useState("Olaaa");
-
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
 
   useEffect(() => {
-    fetch("../fakedata.json")
-      .then((response) => response.json())
-      .then((data) => setTasks(data))
-      .catch((error) => console.error("Error fetching the JSON file:", error));
-  }, []);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function onTaskClick(taskId) {
     var newTasks = tasks.map((task) => {
@@ -32,7 +28,7 @@ function App() {
   }
 
   function addTask(task) {
-    const lastId = tasks.length - 1;
+    const lastId = tasks.length;
     task.id = lastId + 1;
     var newTasks = [...tasks, task];
     setTasks(newTasks);
